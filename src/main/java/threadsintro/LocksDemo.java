@@ -4,7 +4,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LocksDemo {
 
-  private static AtomicInteger counter = new AtomicInteger(0);
+  private static AtomicInteger atomicCounter = new AtomicInteger(0);
+  private static int basicCounter = 0;
   private static Object lock1 = new Object();
   private static LocksDemo lock2 = new LocksDemo();
 
@@ -13,8 +14,8 @@ public class LocksDemo {
     public void run(){
       for(int i = 0; i < 10000; i++){
         //synchronized (lock1){
-          //LocksDemo.counter++;
-        counter.incrementAndGet();
+          LocksDemo.basicCounter++;
+          //atomicCounter.incrementAndGet();
        // }
       }
     }
@@ -36,6 +37,6 @@ public class LocksDemo {
     thread3.join();
     thread4.join();
 
-    System.out.println(counter);
+    System.out.println(basicCounter);
   }
 }
