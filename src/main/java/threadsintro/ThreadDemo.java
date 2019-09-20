@@ -23,8 +23,6 @@ public class ThreadDemo extends Thread {
       e.printStackTrace();
     }
     printA.start();
-
-
   }
 
   /**

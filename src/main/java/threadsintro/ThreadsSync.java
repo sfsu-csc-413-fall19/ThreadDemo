@@ -15,13 +15,7 @@ public class ThreadsSync {
     threadB.start();
     threadA.start();
 
-    try {
-      Thread.sleep(1);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    threadA.join();
-    threadB.join();
+    Thread.sleep(1);
 
     total = worker1.getCount() + worker2.getCount();
     System.out.println("Final total now is: " + total);
